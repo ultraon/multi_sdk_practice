@@ -1,33 +1,198 @@
-# Gradle files
+# -------------- Android Project.
+# Gradle
 .gradle/
 build/
+!gradle/wrapper/gradle-wrapper.jar
+.gradle/cache/
+.gradle/daemon/
+.gradle/taskHistory/
+.gradle/wrapper/dists/
+gradle-app.setting
 
-# Local configuration file (sdk path, etc)
+# Local configuration file (sdk path, keystore, etc)
 local.properties
 
-# Log/OS Files
+# Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# User-specific files
+.DS_Store
+*.swp
+*.lock
+*.tmp
 *.log
 
-# Android Studio generated files and folders
+# Build outputs
+build/
 captures/
-.externalNativeBuild/
-.cxx/
-*.apk
-output.json
+outputs/
 
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+# ProGuard
+proguard/
 
-# Keystore files
+# Keystore files (security)
 *.jks
 *.keystore
 
-# Google Services (e.g. APIs or Firebase)
+# Log files
+*.log
+
+# Generated files
+*.apk
+*.ap_
+*.dex
+*.so
+*.jar
+*.class
+
+# CMake/NDK
+.cxx/
+.externalNativeBuild/
+
+# Jetpack Compose
+compose_compiler/
+
+# Lint
+lint/intermediates/
+lint/generated/
+
+# Coverage
+*.ec
+coverage/
+
+# Crashlytics
+crashlytics.properties
+crashlytics-build.properties
+firebase-debug.log
+
+# Firebase
 google-services.json
+debug.keystore
+
+# Environment files
+.env
+.env.*
+
+# Git files
+.git/
+.gitattributes
+.gitignore
+
+# Miscellaneous
+*.orig
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/assetWizardSettings.xml
+.idea/misc.xml
+.idea/dictionaries/
+.idea/gradle.xml
+.idea/encodings.xml
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/navEditor.xml
+.idea/uiDesigner.xml
+.idea/androidStudioFirstRun.xml
+
+# Testing
+/test-result.xml
+/integration-test.xml
+/test-report.xml
 
 # Android Profiling
 *.hprof
+
+
+
+
+# -------------- iOS Project.
+# User-specific files
+.DS_Store
+*.swp
+*.lock
+*.xcuserstate
+
+# Xcode
+*.xcworkspace/
+*.xcuserdata/
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+*.xcscmblueprint
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Dependencies
+.framework/
+.carthage/
+
+# Build artifacts
+DerivedData/
+Build/
+*.o
+*.a
+*.so
+*.dylib
+*.bin
+*.bcd
+
+# Code coverage
+*.profdata
+*.gcda
+*.gcno
+*.coveragemap
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.swn
+
+# Archives
+*.xcarchive
+*.ipa
+
+# SwiftLint
+.swiftlint.yml
+.swiftlint-cache/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+fastlane/metadata/
+fastlane/build/
+
+# Firebase configuration
+GoogleService-Info.plist
+
+# Environment files
+.env
+.env.*
+
+# Bundler
+/.bundle/
+Gemfile.lock
+
+# Custom Keys or Secrets
+*.key
+*.crt
+*.pem
+
+# App-specific settings
+Settings.bundle/
