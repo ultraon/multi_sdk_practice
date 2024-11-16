@@ -2,7 +2,7 @@ package com.ultraon.calc_sdk.api
 
 // TODO: write documentation
 interface ICalcApi {
-    fun calculateSize(height: Double, weight: Double): CalcSize
+    fun calculateSize(heightCm: Double, weightKg: Double): CalcSize
 }
 
 enum class CalcSize {

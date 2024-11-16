@@ -17,7 +17,7 @@ class DefaultCalcApiTest {
     @Test
     fun testCalculateSizeWeightLessThanZero() {
         val exception = assertThrows(IllegalArgumentException::class.java) {
-            DefaultCalcApi().calculateSize(1.75, -70.0)
+            DefaultCalcApi().calculateSize(175.0, -70.0)
         }
         assertEquals("Weight must be greater than zero", exception.message)
     }
@@ -33,7 +33,7 @@ class DefaultCalcApiTest {
     @Test
     fun testCalculateSizeWeightZero() {
         val exception = assertThrows(IllegalArgumentException::class.java) {
-            DefaultCalcApi().calculateSize(1.75, 0.0)
+            DefaultCalcApi().calculateSize(175.0, 0.0)
         }
         assertEquals("Weight must be greater than zero", exception.message)
     }
@@ -41,9 +41,9 @@ class DefaultCalcApiTest {
     @Test
     fun testCalculateSizeValid() {
         val api = DefaultCalcApi()
-        assertEquals(CalcSize.S, api.calculateSize(1.75, 50.0))
-        assertEquals(CalcSize.M, api.calculateSize(1.75, 70.0))
-        assertEquals(CalcSize.L, api.calculateSize(1.75, 85.0))
-        assertEquals(CalcSize.XL, api.calculateSize(1.75, 100.0))
+        assertEquals(CalcSize.S, api.calculateSize(175.0, 50.0))
+        assertEquals(CalcSize.M, api.calculateSize(175.0, 70.0))
+        assertEquals(CalcSize.L, api.calculateSize(175.0, 85.0))
+        assertEquals(CalcSize.XL, api.calculateSize(175.0, 100.0))
     }
 }

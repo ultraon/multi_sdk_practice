@@ -16,13 +16,15 @@ class DefaultCalcApi : ICalcApi {
     // - M: 18.5 <= BMI < 24.9
     // - L: 25 <= BMI < 29.9
     // - XL: BMI >= 30
-    override fun calculateSize(height: Double, weight: Double): CalcSize {
+    override fun calculateSize(heightCm: Double, weightKg: Double): CalcSize {
         // assertion to prevent division by zero.
-        require(height > 0) { "Height must be greater than zero" }
+        require(heightCm > 0) { "Height must be greater than zero" }
         // assertion weight should be more than 0.
-        require(weight > 0) { "Weight must be greater than zero" }
+        require(weightKg > 0) { "Weight must be greater than zero" }
 
-        val bmi = weight / (height * height)
+
+        val heightM = heightCm / 100
+        val bmi = weightKg / (heightM * heightM)
         return when {
             bmi < 18.5 -> CalcSize.S
             bmi < 24.9 -> CalcSize.M
