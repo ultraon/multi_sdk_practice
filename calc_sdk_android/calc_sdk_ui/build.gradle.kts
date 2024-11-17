@@ -13,7 +13,6 @@ android {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        // TODO, provide rules for R8 if needed
         consumerProguardFiles("consumer-rules.pro")
     }
 
