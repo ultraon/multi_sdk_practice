@@ -1,4 +1,4 @@
-package com.ultraon.calc_sdk.ui
+package com.ultraon.calc_sdk_ui
 
 import android.os.Bundle
 import android.widget.Toast
@@ -15,14 +15,14 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.ultraon.calc_sdk.CalcApiSdk
-import com.ultraon.calc_sdk.ui.model.SizeCalculatorAppState
-import com.ultraon.calc_sdk.ui.model.SizeCalculatorAppState.SizeCalculatorInitial
-import com.ultraon.calc_sdk.ui.model.SizeCalculatorAppState.SizeCalculatorResult
-import com.ultraon.calc_sdk.ui.model.toInitial
-import com.ultraon.calc_sdk.ui.model.toResult
-import com.ultraon.calc_sdk.ui.theme.SampleTheme
-import com.ultraon.calc_sdk.ui.view.RecommendedSizeScreen
-import com.ultraon.calc_sdk.ui.view.SizeCalculatorScreen
+import com.ultraon.calc_sdk_ui.model.SizeCalculatorAppState
+import com.ultraon.calc_sdk_ui.model.SizeCalculatorAppState.SizeCalculatorInitial
+import com.ultraon.calc_sdk_ui.model.SizeCalculatorAppState.SizeCalculatorResult
+import com.ultraon.calc_sdk_ui.model.toInitial
+import com.ultraon.calc_sdk_ui.model.toResult
+import com.ultraon.calc_sdk_ui.theme.SampleTheme
+import com.ultraon.calc_sdk_ui.view.RecommendedSizeScreen
+import com.ultraon.calc_sdk_ui.view.SizeCalculatorScreen
 
 class CalculationActivity : ComponentActivity() {
     private val calcApi by lazy { CalcApiSdk.createApi() }

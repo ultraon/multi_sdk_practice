@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "SampleApp"
 include(":sample")
 include(":calc_sdk")
+include(":calc_sdk_ui")

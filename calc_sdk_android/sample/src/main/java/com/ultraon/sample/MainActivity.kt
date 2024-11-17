@@ -1,6 +1,5 @@
 package com.ultraon.sample
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,10 +15,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.ultraon.calc_sdk.CalcApiSdk
-import com.ultraon.calc_sdk.ui.CalculationActivity
+import com.ultraon.calc_sdk_ui.showSizeRecommendation
 import com.ultraon.sample.ui.theme.SampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -52,7 +51,7 @@ fun LaunchDemoScreen(modifier: Modifier = Modifier) {
             Button(onClick = {
                 CalcApiSdk.showSizeRecommendation(activity = context)
             }) {
-                Text("Launch Demo")
+                Text(stringResource(R.string.launch_demo))
             }
         }
     }

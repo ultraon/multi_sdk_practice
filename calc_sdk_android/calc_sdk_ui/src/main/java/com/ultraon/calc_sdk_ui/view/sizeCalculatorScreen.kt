@@ -1,4 +1,4 @@
-package com.ultraon.calc_sdk.ui.view
+package com.ultraon.calc_sdk_ui.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,9 +14,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,8 +25,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.ultraon.calc_sdk.R
-import com.ultraon.calc_sdk.ui.theme.SampleTheme
+import com.ultraon.calc_sdk_ui.R
+import com.ultraon.calc_sdk_ui.theme.SampleTheme
 
 @Composable
 fun SizeCalculatorScreen(
@@ -35,8 +35,12 @@ fun SizeCalculatorScreen(
     initialWeightKg: Int = 0,
     onCalculateClick: (heightCm: Int, weightKg: Int) -> Unit = { _, _ -> },
 ) {
-    var heightCm by remember { mutableIntStateOf(initialHeightCm) }
-    var weightKg by remember { mutableIntStateOf(initialWeightKg) }
+    var heightCm by rememberSaveable(inputs = arrayOf(initialHeightCm)) {
+        mutableIntStateOf(initialHeightCm)
+    }
+    var weightKg by rememberSaveable(inputs = arrayOf(initialWeightKg)) {
+        mutableIntStateOf(initialWeightKg)
+    }
     val isValidInput by remember { derivedStateOf { heightCm > 0 && weightKg > 0 } }
 
     Scaffold(modifier = modifier.fillMaxSize()) { innerPadding ->

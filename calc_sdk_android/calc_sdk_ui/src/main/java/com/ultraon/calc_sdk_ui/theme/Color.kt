@@ -1,4 +1,4 @@
-package com.ultraon.calc_sdk.ui.theme
+package com.ultraon.calc_sdk_ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,9 +1,8 @@
-package com.ultraon.calc_sdk.ui.model
+package com.ultraon.calc_sdk_ui.model
 
 import android.os.Parcelable
-import androidx.compose.runtime.saveable.Saver
-import com.ultraon.calc_sdk.ui.model.SizeCalculatorAppState.SizeCalculatorInitial
-import com.ultraon.calc_sdk.ui.model.SizeCalculatorAppState.SizeCalculatorResult
+import com.ultraon.calc_sdk_ui.model.SizeCalculatorAppState.SizeCalculatorInitial
+import com.ultraon.calc_sdk_ui.model.SizeCalculatorAppState.SizeCalculatorResult
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

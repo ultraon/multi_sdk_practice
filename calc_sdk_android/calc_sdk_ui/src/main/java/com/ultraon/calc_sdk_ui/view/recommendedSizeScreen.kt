@@ -1,4 +1,4 @@
-package com.ultraon.calc_sdk.ui.view
+package com.ultraon.calc_sdk_ui.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,8 +17,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.ultraon.calc_sdk.R
-import com.ultraon.calc_sdk.ui.theme.SampleTheme
+import com.ultraon.calc_sdk_ui.R
+import com.ultraon.calc_sdk_ui.theme.SampleTheme
 
 @Composable
 fun RecommendedSizeScreen(
