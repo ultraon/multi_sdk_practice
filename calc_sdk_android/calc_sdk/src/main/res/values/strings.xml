@@ -1,0 +1,10 @@
+<resources>
+    <string name="calc_sdk_find_perfect_fit">Find Your Perfect Fit</string>
+    <string name="calc_sdk_clear_text">Clear text</string>
+    <string name="calc_sdk_height_cm">Height (cm):</string>
+    <string name="calc_sdk_weight_kg">Weight (kg):</string>
+    <string name="calc_sdk_get_size_recommendation">Get Size Recommendation</string>
+    <string name="calc_sdk_your_recommended_size">Your Recommended Size: %s</string>
+    <string name="calc_sdk_size_recommended">Based on your info, size %s is recommended.</string>
+    <string name="calc_sdk_ok">OK</string>
+</resources>

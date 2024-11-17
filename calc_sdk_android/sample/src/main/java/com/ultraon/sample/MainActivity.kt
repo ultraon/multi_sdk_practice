@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import com.ultraon.calc_sdk.CalcApiSdk
 import com.ultraon.calc_sdk.ui.CalculationActivity
 import com.ultraon.sample.ui.theme.SampleTheme
@@ -40,7 +41,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun LaunchDemoScreen(modifier: Modifier = Modifier) {
-    val context = LocalContext.current
     Scaffold(modifier = modifier.fillMaxSize()) { innerPadding ->
         Box(
             modifier = Modifier
@@ -48,9 +48,9 @@ fun LaunchDemoScreen(modifier: Modifier = Modifier) {
                 .fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
+            val context = LocalContext.current
             Button(onClick = {
-                val intent = Intent(context, CalculationActivity::class.java)
-                context.startActivity(intent)
+                CalcApiSdk.showSizeRecommendation(activity = context)
             }) {
                 Text("Launch Demo")
             }
@@ -58,8 +58,8 @@ fun LaunchDemoScreen(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@PreviewLightDark
 @Composable
-fun LaunchDemoScreenreview() {
+fun LaunchDemoScreenPreview() {
     LaunchDemoScreen()
 }

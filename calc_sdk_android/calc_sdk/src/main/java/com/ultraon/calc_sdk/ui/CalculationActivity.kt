@@ -11,13 +11,18 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.ultraon.calc_sdk.CalcApiSdk
-import com.ultraon.calc_sdk.ui.SizeCalculatorAppState.SizeCalculatorInitial
-import com.ultraon.calc_sdk.ui.SizeCalculatorAppState.SizeCalculatorResult
+import com.ultraon.calc_sdk.ui.model.SizeCalculatorAppState
+import com.ultraon.calc_sdk.ui.model.SizeCalculatorAppState.SizeCalculatorInitial
+import com.ultraon.calc_sdk.ui.model.SizeCalculatorAppState.SizeCalculatorResult
+import com.ultraon.calc_sdk.ui.model.toInitial
+import com.ultraon.calc_sdk.ui.model.toResult
 import com.ultraon.calc_sdk.ui.theme.SampleTheme
+import com.ultraon.calc_sdk.ui.view.RecommendedSizeScreen
+import com.ultraon.calc_sdk.ui.view.SizeCalculatorScreen
 
 class CalculationActivity : ComponentActivity() {
     private val calcApi by lazy { CalcApiSdk.createApi() }
@@ -31,7 +36,7 @@ class CalculationActivity : ComponentActivity() {
             }
 
             SampleTheme {
-                var appState by remember {
+                var appState by rememberSaveable {
                     mutableStateOf<SizeCalculatorAppState>(
                         SizeCalculatorInitial()
                     )
@@ -47,20 +52,9 @@ class CalculationActivity : ComponentActivity() {
                                 initialHeightCm = state.heightCm,
                                 initialWeightKg = state.weightKg,
                             ) { heightCm, weightKg ->
-                                if (heightCm <= 0.0 || weightKg <= 0.0) {
-                                    // show toast
-                                    Toast.makeText(
-                                        this@CalculationActivity,
-                                        "Height and weight must be greater than zero",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    return@SizeCalculatorScreen
+                                onCalculateClick(heightCm, weightKg)?.let {
+                                    appState = it
                                 }
-                                val size = calcApi.calculateSize(heightCm, weightKg).name
-                                appState = state.copy(
-                                    heightCm = heightCm,
-                                    weightKg = weightKg
-                                ).toResult(size)
                             }
                         }
 
@@ -73,5 +67,22 @@ class CalculationActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    private fun onCalculateClick(heightCm: Int, weightKg: Int): SizeCalculatorAppState? {
+        if (heightCm <= 0 || weightKg <= 0) {
+            // show toast
+            Toast.makeText(
+                this@CalculationActivity,
+                "Height and weight must be greater than zero",
+                Toast.LENGTH_SHORT
+            ).show()
+            return null
+        }
+        val size = calcApi.calculateSize(
+            heightCm.toDouble(),
+            weightKg.toDouble(),
+        ).name
+        return SizeCalculatorInitial(heightCm, weightKg).toResult(size)
     }
 }
