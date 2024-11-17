@@ -9,6 +9,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -16,6 +17,7 @@ import com.ultraon.calc_sdk_ui.R
 
 @Composable
 fun NumberInput(
+    modifier: Modifier = Modifier,
     value: Int,
     label: String,
     imeAction: ImeAction = ImeAction.Default,
@@ -24,6 +26,7 @@ fun NumberInput(
 ) {
     val text = if (value > 0) "$value" else ""
     OutlinedTextField(
+        modifier = modifier,
         value = text,
         label = { Text(label) },
         singleLine = true,

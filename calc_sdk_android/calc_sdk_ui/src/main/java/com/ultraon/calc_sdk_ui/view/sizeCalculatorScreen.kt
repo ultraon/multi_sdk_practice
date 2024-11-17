@@ -20,6 +20,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -57,6 +58,7 @@ fun SizeCalculatorScreen(
             )
             Spacer(modifier = Modifier.height(16.dp))
             NumberInput(
+                modifier = Modifier.testTag("heightInput"),
                 value = heightCm,
                 label = stringResource(id = R.string.calc_sdk_height_cm),
                 imeAction = ImeAction.Next,
@@ -64,6 +66,7 @@ fun SizeCalculatorScreen(
             )
             Spacer(modifier = Modifier.height(8.dp))
             NumberInput(
+                modifier = Modifier.testTag("weightInput"),
                 value = weightKg,
                 label = stringResource(id = R.string.calc_sdk_weight_kg),
                 imeAction = ImeAction.Done,
