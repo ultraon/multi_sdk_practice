@@ -42,7 +42,7 @@ dependencies {
     implementation(libs.androidx.material3)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    api(project(":calc_sdk"))
+    api(projects.calcSdk)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
